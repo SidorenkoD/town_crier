@@ -1,0 +1,21 @@
+inherit_from: .rubocop_todo.yml
+AllCops:
+  TargetRubyVersion: 2.4.1
+  Exclude:
+    - db/**/*
+    - bin/*
+    - config/**/*
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - test/test_helper.rb
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+  IgnoredPatterns: ['\s*#.*']
