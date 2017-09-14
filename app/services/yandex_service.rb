@@ -4,15 +4,16 @@ class YandexService
   URI_PATH = '/ru/index5.utf8.js'.freeze
 
   def initialize
-    @post = Post.last
+    @post = Post.yandex
   end
 
   def update_news
+    # return if forced is relevant
     news = request_news
     return unless news
     @recent_post = news.max_by { |post| post['ts'] }
     @recent_time = Time.at(@recent_post['ts'].to_i)
-    return Post.create post_params unless @post
+    return Post.create! post_params unless @post
     @post.update post_params if @recent_time > @post.posted_at
   end
 

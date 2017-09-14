@@ -1,0 +1,9 @@
+<%= form_for @post, url: post_news_path, method: :put do |f| %>
+  <%= f.text_field :title %>
+  </br>
+  <%= f.text_area :description %>
+  </br>
+  <%= f.date_field :relevant_until %>
+  </br>
+  <%= f.submit %>
+<% end %>
