@@ -4,19 +4,15 @@ class PostsController < ApplicationController
 
   def update
     return render :edit unless @post.update post_params
-    ActionCable.server.broadcast 'newsletter_channel',
-                                 title: @post.title,
-                                 description: @post.description,
-                                 date: @post.posted_at
     redirect_to :root
   end
 
   private
 
   def post_params
-    # params.require(:post).permit :title, :description, :relevant_until
+    # params.require(:post).permit :title, :description, :relevant_until # TODO
     @post_params = params.require(:post).permit :title, :description
-    @post_params.merge forced: true, relevant_until: 1.minute.since(Time.now), posted_at: Time.now
+    @post_params.merge forced: true, relevant_until: 20.seconds.from_now, posted_at: Time.now
   end
 
   def set_forced_post

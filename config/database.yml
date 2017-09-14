@@ -2,7 +2,7 @@ default: &default
   adapter: postgresql
   host:     localhost
   username: postgres
-  password: rails
+  password: temp1234
 
 development:
   <<: *default

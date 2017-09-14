@@ -16,6 +16,10 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/SingleLineMethods:
+  Exclude:
+    - 'app/models/post.rb'
+
 Metrics/LineLength:
   Max: 120
   IgnoredPatterns: ['\s*#.*']

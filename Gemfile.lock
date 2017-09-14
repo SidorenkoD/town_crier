@@ -99,6 +99,7 @@ GEM
       pry (>= 0.10.4)
     public_suffix (3.0.0)
     puma (3.10.0)
+    que (0.14.0)
     rack (2.0.3)
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
@@ -190,6 +191,7 @@ DEPENDENCIES
   pg
   pry-rails
   puma (~> 3.7)
+  que
   rails (~> 5.1.4)
   redis
   rubocop
