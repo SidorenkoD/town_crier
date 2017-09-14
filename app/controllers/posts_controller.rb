@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
-  before_action :set_forced_post, only: %i[show update]
+  before_action :set_forced_post, only: %i[edit update]
   before_action :set_post, only: :index
 
   def update
-    return redirect_to :root if @post.update post_params
-    render :show
+    return render :edit unless @post.update post_params
+    ActionCable.server.broadcast 'newsletter_channel',
+                                 title: @post.title,
+                                 description: @post.description,
+                                 date: @post.posted_at
+    redirect_to :root
   end
 
   private

@@ -1,6 +1,5 @@
 class Post < ApplicationRecord
   validates :title, :description, :posted_at, presence: true
-  validates :forced, uniqueness: true
   validates :relevant_until, presence: true, if: proc { |post| post.forced }
 
   class << self
