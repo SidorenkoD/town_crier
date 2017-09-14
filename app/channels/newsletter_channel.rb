@@ -4,7 +4,7 @@ class NewsletterChannel < ApplicationCable::Channel
       ActionCable.server.broadcast to_s,
                                    title: post.title,
                                    description: post.description,
-                                   date: post.posted_at
+                                   date: post.posted_at.to_s
     end
 
     def to_s

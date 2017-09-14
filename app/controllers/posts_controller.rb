@@ -9,10 +9,15 @@ class PostsController < ApplicationController
 
   private
 
+  def calculated_timestamp
+    relevant_until = DateTime.parse @post_params[:relevant_until]
+    relevant_until = 5.seconds.since Time.now if relevant_until < Time.now
+    relevant_until
+  end
+
   def post_params
-    # params.require(:post).permit :title, :description, :relevant_until # TODO
-    @post_params = params.require(:post).permit :title, :description
-    @post_params.merge forced: true, relevant_until: 20.seconds.from_now, posted_at: Time.now
+    @post_params = params.require(:post).permit :title, :description, :relevant_until
+    @post_params.merge forced: true, relevant_until: calculated_timestamp, posted_at: Time.now
   end
 
   def set_forced_post
