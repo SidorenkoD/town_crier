@@ -23,8 +23,13 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.6'
   gem 'rubocop', require: false
   gem 'selenium-webdriver'
+end
+
+group :test do
+  gem 'webmock'
 end
 
 gem 'tzinfo-data'
