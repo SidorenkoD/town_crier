@@ -11,6 +11,7 @@ end
 gem 'bootstrap-sass', '3.3.6'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'coffee-rails', '~> 4.2'
+gem 'factory_girl_rails', '~> 4.0'
 gem 'jbuilder', '~> 2.5'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'puma', '~> 3.7'
@@ -29,6 +30,8 @@ group :development, :test do
 end
 
 group :test do
+  gem 'chromedriver-helper'
+  gem 'redis_test'
   gem 'webmock'
 end
 
