@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Monitoring of the newest Yandex main post from newsfeed.
+Rolling-out - configure db credentials according to *config/database.yml.example* and save it as *config/database.yml*. Then run commands below one-by-one:
 
-Things you may want to cover:
+1. bundle
+1. yarn add jquery
+1. rails db:setup
+1. gem install foreman
+1. foreman start
 
-* Ruby version
+Run tests:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. gem install rspec
+2. rspec ./spec
